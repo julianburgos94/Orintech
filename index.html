@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<!--
+=======================================================
+  ÍNDICE DE ARCHIVOS — index.html
+=======================================================
+  Líneas  1  -  50  : Metadatos, SEO y Open Graph
+  Líneas  51 - 100  : Encabezado (HEADER) y navegación (NAV)
+  Líneas 101 - 140  : Sección HERO (portada principal)
+  Líneas 141 - 170  : Sección QUIÉNES SOMOS
+  Líneas 171 - 280  : Sección SERVICIOS (6 cards)
+  Líneas 281 - 330  : Sección CASOS DE ÉXITO (3 cards)
+  Líneas 331 - 370  : Sección POR QUÉ ELEGIRNOS (4 bullets)
+  Líneas 371 - 440  : Sección CONTACTO (formulario + datos)
+  Líneas 441 - 470  : FOOTER
+  Líneas 471+       : MANUAL DE EDICIÓN (sección oculta)
+
+  IMÁGENES NECESARIAS (colocar en la carpeta assets/images/):
+  - imagen1.jpg  → Hero principal        | Dimensiones recomendadas: 1600×900 px
+  - imagen2.jpg  → Card Servicio 1       | Dimensiones recomendadas: 800×600 px
+  - imagen3.jpg  → Card Servicio 2       | Dimensiones recomendadas: 800×600 px
+  - imagen4.jpg  → Card Servicio 3       | Dimensiones recomendadas: 800×600 px
+  - imagen5.jpg  → Card Servicio 4       | Dimensiones recomendadas: 800×600 px
+  - imagen6.jpg  → Card Servicio 5       | Dimensiones recomendadas: 800×600 px
+  - imagen7.jpg  → Card Servicio 6       | Dimensiones recomendadas: 800×600 px
+  - logo.png     → Logo principal        | Dimensiones recomendadas: 400×120 px
+
+  CÓMO REEMPLAZAR EL LOGO:
+  1. Coloca tu logo en la carpeta assets/ con el nombre logo.png
+  2. La etiqueta en el HTML es: <img src="assets/logo.png" ...>
+  3. Ajusta el ancho máximo del logo en styles.css → .nav__logo img { max-width: ... }
+
+  CÓMO REEMPLAZAR LAS IMÁGENES:
+  1. Coloca las imágenes en assets/images/ con los nombres exactos indicados arriba
+  2. Para cambiar el alt (texto alternativo) busca el atributo alt="..." en cada <img>
+  3. Para cambiar la imagen del hero busca: src="assets/images/imagen1.jpg"
+=======================================================
+-->
+<html lang="es">
+<head>
+  <!-- ================================================
+    METADATOS BÁSICOS Y SEO
+    Cambia la descripción y el título para mejorar el posicionamiento.
+    El viewport garantiza diseño responsive en móviles.
+  ================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Orintech SAS — Soluciones tecnológicas integrales: redes, seguridad electrónica, outsourcing IT y soporte 24/7 en Tunja, Boyacá, Colombia." />
+
+  <!-- Open Graph: metadatos para redes sociales (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:title" content="Orintech SAS — Soluciones Tecnológicas Integrales" />
+  <meta property="og:description" content="Eficiencia, respaldo y soporte 24/7. Llevamos tu tecnología al siguiente nivel." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/imagen1.jpg" />
+  <meta property="og:locale" content="es_CO" />
+
+  <title>Orintech SAS — Soluciones Tecnológicas Integrales</title>
+
+  <!-- Font Awesome — íconos de redes sociales (Instagram, TikTok, Facebook) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Tipografía desde Google Fonts: Poppins (títulos) + Outfit (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ================================================
+  HEADER / NAVEGACIÓN
+  - El logo apunta a assets/logo.png
+  - Los enlaces del nav apuntan a secciones con anclas (#servicios, etc.)
+  - Para cambiar los textos del menú edita los <a> dentro de <ul class="nav__links">
+  - El botón .nav__cta es el CTA del menú; cambia el texto y el href aquí.
+================================================ -->
+<header class="header" role="banner">
+  <nav class="nav container" role="navigation" aria-label="Navegación principal">
+    <!-- Logo: reemplaza assets/logo.png con tu imagen -->
+    <a href="#inicio" class="nav__logo" aria-label="Ir al inicio de Orintech SAS">
+      <img src="assets/logo.png" alt="Logo de Orintech SAS" width="160" height="48" />
+    </a>
+
+    <!-- Botón hamburguesa para móvil — controlado por scripts.js -->
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú de navegación">
+      <span class="hamburger"></span>
+    </button>
+
+    <!-- Menú principal -->
+    <ul class="nav__links" id="navMenu" role="list">
+      <li><a href="#inicio" class="nav__link">Inicio</a></li>
+      <li><a href="#quienes-somos" class="nav__link">Quiénes somos</a></li>
+      <li><a href="#servicios" class="nav__link">Servicios</a></li>
+      <li><a href="#casos" class="nav__link">Casos de éxito</a></li>
+      <li><a href="#por-que" class="nav__link">¿Por qué elegirnos?</a></li>
+      <li><a href="#contacto" class="nav__link nav__cta">Contáctanos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ================================================
+  SECCIÓN HERO (portada principal)
+  - Para cambiar el TÍTULO principal edita la etiqueta <h1>
+  - Para cambiar el SUBTÍTULO edita el <p class="hero__subtitle">
+  - Para cambiar el botón CTA edita el <a class="btn btn--primary">
+  - Para cambiar la imagen de fondo: en styles.css busca .hero__image src,
+    o directamente cambia el atributo src abajo.
+  - Imagen hero: assets/images/imagen1.jpg | 1600×900 px recomendado
+================================================ -->
+<section class="hero" id="inicio" aria-label="Portada principal">
+  <div class="hero__content container">
+    <div class="hero__text">
+      <!-- TÍTULO PRINCIPAL — edita el texto aquí -->
+      <h1 class="hero__title">Soluciones Tecnológicas <span class="highlight">Integrales</span> para su empresa</h1>
+      <!-- SUBTÍTULO — edita el texto aquí -->
+      <p class="hero__subtitle">Eficiencia, respaldo y soporte 24/7. Llevamos tu tecnología al siguiente nivel.</p>
+      <!-- CTA principal — el href="#contacto" lleva al formulario -->
+      <a href="#contacto" class="btn btn--primary">Contáctanos</a>
+    </div>
+    <div class="hero__image-wrap">
+      <!-- Imagen hero: reemplaza imagen1.jpg en assets/images/ | 1600×900 px -->
+      <img
+        src="assets/images/imagen1.jpg"
+        alt="Equipo de profesionales de Orintech SAS trabajando en soluciones tecnológicas"
+        class="hero__image"
+        width="720"
+        height="480"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  SECCIÓN QUIÉNES SOMOS
+  - Para cambiar el párrafo de descripción edita el <p> dentro de .about__text
+  - Para cambiar el título de la sección edita el <h2>
+================================================ -->
+<section class="about section" id="quienes-somos" aria-labelledby="about-title">
+  <div class="container about__grid">
+    <div class="about__text">
+      <span class="section-tag">Quiénes somos</span>
+      <!-- Título de la sección -->
+      <h2 id="about-title" class="section-title">Más de 9 años impulsando la tecnología en Boyacá</h2>
+      <!-- Descripción de la empresa — edita este párrafo -->
+      <p>Orintech SAS es una empresa boyacense especializada en servicios informáticos, redes, seguridad electrónica y outsourcing. Con más de 9 años de experiencia, ofrecemos soluciones a la medida, talento humano calificado y compromiso con la calidad y la sostenibilidad.</p>
+      <a href="#contacto" class="btn btn--outline">Habla con nosotros</a>
+    </div>
+    <div class="about__stats" aria-label="Estadísticas de la empresa">
+      <div class="stat-card">
+        <span class="stat-card__number">9+</span>
+        <span class="stat-card__label">Años de experiencia</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card__number">200+</span>
+        <span class="stat-card__label">Clientes atendidos</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card__number">24/7</span>
+        <span class="stat-card__label">Soporte disponible</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card__number">100%</span>
+        <span class="stat-card__label">Comprometidos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  SECCIÓN SERVICIOS (6 cards)
+  - Cada card tiene: imagen (imagen2.jpg...imagen7.jpg), título y descripción
+  - Para cambiar el título de un servicio edita el <h3 class="service-card__title">
+  - Para cambiar la descripción edita el <p class="service-card__desc">
+  - Para cambiar la imagen cambia el src en <img> — usa nombres imagen2 a imagen7
+  - Las imágenes de servicios: 800×600 px recomendado
+================================================ -->
+<section class="services section" id="servicios" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Servicios</span>
+      <h2 id="services-title" class="section-title">Lo que hacemos por usted</h2>
+      <p class="section-subtitle">Soluciones tecnológicas completas adaptadas a las necesidades de su empresa.</p>
+    </div>
+
+    <div class="services__grid">
+
+      <!-- SERVICIO 1 — imagen2.jpg | 800×600 px -->
+      <article class="service-card" aria-label="Servicio: Infraestructura de Redes">
+        <div class="service-card__img-wrap">
+          <img src="assets/images/imagen2.jpg" alt="Técnico instalando infraestructura de redes empresariales" class="service-card__img" width="400" height="280" loading="lazy" />
+        </div>
+        <div class="service-card__body">
+          <!-- Cambia el título del servicio aquí -->
+          <h3 class="service-card__title">Infraestructura de Redes</h3>
+          <!-- Cambia la descripción del servicio aquí -->
+          <p class="service-card__desc">Diseño, instalación y mantenimiento de redes LAN/WAN para empresas de cualquier tamaño, garantizando alta disponibilidad.</p>
+          <a href="#contacto" class="service-card__link" aria-label="Más información sobre Infraestructura de Redes">Más →</a>
+        </div>
+      </article>
+
+      <!-- SERVICIO 2 — imagen3.jpg | 800×600 px -->
+      <article class="service-card" aria-label="Servicio: Seguridad Electrónica">
+        <div class="service-card__img-wrap">
+          <img src="assets/images/imagen3.jpg" alt="Sistema de cámaras de seguridad electrónica instalado en empresa" class="service-card__img" width="400" height="280" loading="lazy" />
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Seguridad Electrónica</h3>
+          <p class="service-card__desc">Instalación de CCTV, control de acceso, alarmas y sistemas de vigilancia para proteger sus instalaciones y activos.</p>
+          <a href="#contacto" class="service-card__link" aria-label="Más información sobre Seguridad Electrónica">Más →</a>
+        </div>
+      </article>
+
+      <!-- SERVICIO 3 — imagen4.jpg | 800×600 px -->
+      <article class="service-card" aria-label="Servicio: Outsourcing IT">
+        <div class="service-card__img-wrap">
+          <img src="assets/images/imagen4.jpg" alt="Profesional de IT brindando soporte técnico a empresa" class="service-card__img" width="400" height="280" loading="lazy" />
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Outsourcing IT</h3>
+          <p class="service-card__desc">Gestión completa de su área de tecnología: administración de servidores, soporte a usuarios y mantenimiento preventivo.</p>
+          <a href="#contacto" class="service-card__link" aria-label="Más información sobre Outsourcing IT">Más →</a>
+        </div>
+      </article>
+
+      <!-- SERVICIO 4 — imagen5.jpg | 800×600 px -->
+      <article class="service-card" aria-label="Servicio: Soporte Técnico 24/7">
+        <div class="service-card__img-wrap">
+          <img src="assets/images/imagen5.jpg" alt="Centro de soporte técnico atendiendo solicitudes en tiempo real" class="service-card__img" width="400" height="280" loading="lazy" />
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Soporte Técnico 24/7</h3>
+          <p class="service-card__desc">Atención permanente ante fallas críticas, soporte remoto y presencial para minimizar el tiempo de inactividad de su empresa.</p>
+          <a href="#contacto" class="service-card__link" aria-label="Más información sobre Soporte Técnico">Más →</a>
+        </div>
+      </article>
+
+      <!-- SERVICIO 5 — imagen6.jpg | 800×600 px -->
+      <article class="service-card" aria-label="Servicio: Ciberseguridad">
+        <div class="service-card__img-wrap">
+          <img src="assets/images/imagen6.jpg" alt="Pantalla mostrando análisis de ciberseguridad y protección de datos" class="service-card__img" width="400" height="280" loading="lazy" />
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Ciberseguridad</h3>
+          <p class="service-card__desc">Auditorías de seguridad, implementación de firewalls, antivirus corporativo y planes de respuesta ante incidentes digitales.</p>
+          <a href="#contacto" class="service-card__link" aria-label="Más información sobre Ciberseguridad">Más →</a>
+        </div>
+      </article>
+
+      <!-- SERVICIO 6 — imagen7.jpg | 800×600 px -->
+      <article class="service-card" aria-label="Servicio: Consultoría Tecnológica">
+        <div class="service-card__img-wrap">
+          <img src="assets/images/imagen7.jpg" alt="Reunión de consultoría tecnológica entre expertos y cliente" class="service-card__img" width="400" height="280" loading="lazy" />
+        </div>
+        <div class="service-card__body">
+          <h3 class="service-card__title">Consultoría Tecnológica</h3>
+          <p class="service-card__desc">Asesoría estratégica para modernizar su infraestructura, optimizar costos y alinear la tecnología con los objetivos del negocio.</p>
+          <a href="#contacto" class="service-card__link" aria-label="Más información sobre Consultoría Tecnológica">Más →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  SECCIÓN CASOS DE ÉXITO (3 cards)
+  - Para cambiar el nombre del cliente edita el <h3 class="case-card__title">
+  - Para cambiar el texto del caso edita el <p class="case-card__snippet">
+  - Para cambiar el logo del cliente reemplaza la imagen en src (400×200 px recomendado)
+================================================ -->
+<section class="cases section" id="casos" aria-labelledby="cases-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Casos de éxito</span>
+      <h2 id="cases-title" class="section-title">Clientes que confían en nosotros</h2>
+      <p class="section-subtitle">Resultados reales para organizaciones de Boyacá y Colombia.</p>
+    </div>
+
+    <div class="cases__grid">
+
+      <!-- CASO 1 — edita título, snippet y logo -->
+      <article class="case-card" aria-label="Caso de éxito: RUNT">
+        <div class="case-card__body">
+          <!-- Logo pequeño del cliente: 400×200 px recomendado -->
+          <img src="assets/images/logo-cliente1.png" alt="Logo del cliente RUNT" class="case-card__logo" width="120" height="48" loading="lazy" onerror="this.style.display='none'" />
+          <h3 class="case-card__title">RUNT</h3>
+          <p class="case-card__snippet">Implementación de soporte preventivo y correctivo para la infraestructura tecnológica regional, logrando una disponibilidad del 99,8%.</p>
+        </div>
+        <div class="case-card__footer">
+          <span class="case-tag">Soporte IT</span>
+        </div>
+      </article>
+
+      <!-- CASO 2 -->
+      <article class="case-card" aria-label="Caso de éxito: Empresa manufacturera Boyacá">
+        <div class="case-card__body">
+          <img src="assets/images/logo-cliente2.png" alt="Logo de empresa manufacturera en Boyacá" class="case-card__logo" width="120" height="48" loading="lazy" onerror="this.style.display='none'" />
+          <h3 class="case-card__title">Industrias del Acero Boyacá</h3>
+          <p class="case-card__snippet">Diseño e instalación de red corporativa y sistema de videovigilancia con 48 cámaras IP, integrando todos sus puntos de producción.</p>
+        </div>
+        <div class="case-card__footer">
+          <span class="case-tag">Redes & CCTV</span>
+        </div>
+      </article>
+
+      <!-- CASO 3 -->
+      <article class="case-card" aria-label="Caso de éxito: Institución educativa">
+        <div class="case-card__body">
+          <img src="assets/images/logo-cliente3.png" alt="Logo de institución educativa cliente de Orintech" class="case-card__logo" width="120" height="48" loading="lazy" onerror="this.style.display='none'" />
+          <h3 class="case-card__title">Universidad Regional</h3>
+          <p class="case-card__snippet">Outsourcing completo del área TI para sede principal y dos sedes alternas, con reducción del 35% en costos operativos de tecnología.</p>
+        </div>
+        <div class="case-card__footer">
+          <span class="case-tag">Outsourcing IT</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  SECCIÓN POR QUÉ ELEGIRNOS (4 bullets)
+  - Para cambiar los títulos edita los <h3 class="why-item__title">
+  - Para cambiar las descripciones edita los <p class="why-item__desc">
+  - Los íconos son SVG inline — cámbialos si deseas otros
+================================================ -->
+<section class="why section" id="por-que" aria-labelledby="why-title">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">¿Por qué elegirnos?</span>
+      <h2 id="why-title" class="section-title">Ventajas que marcan la diferencia</h2>
+    </div>
+
+    <div class="why__grid">
+
+      <!-- BULLET 1 -->
+      <div class="why-item" aria-label="Equipo profesional">
+        <div class="why-item__icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <!-- Cambia el título del bullet aquí -->
+        <h3 class="why-item__title">Equipo profesional</h3>
+        <!-- Cambia la descripción del bullet aquí -->
+        <p class="why-item__desc">Ingenieros certificados y técnicos especializados con amplia experiencia en el sector empresarial colombiano.</p>
+      </div>
+
+      <!-- BULLET 2 -->
+      <div class="why-item" aria-label="Soporte 24/7">
+        <div class="why-item__icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3 class="why-item__title">Soporte 24/7</h3>
+        <p class="why-item__desc">Atención continua los 365 días del año. Respondemos ante cualquier incidente en tiempo mínimo para proteger su operación.</p>
+      </div>
+
+      <!-- BULLET 3 -->
+      <div class="why-item" aria-label="Tecnología de vanguardia">
+        <div class="why-item__icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3 class="why-item__title">Tecnología de vanguardia</h3>
+        <p class="why-item__desc">Trabajamos con las mejores marcas y herramientas del mercado para garantizar soluciones modernas, escalables y seguras.</p>
+      </div>
+
+      <!-- BULLET 4 -->
+      <div class="why-item" aria-label="Sostenibilidad">
+        <div class="why-item__icon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="why-item__title">Sostenibilidad</h3>
+        <p class="why-item__desc">Comprometidos con el medio ambiente y la responsabilidad social, implementando prácticas tecnológicas eco-eficientes.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  SECCIÓN CONTACTO
+  - Formulario: los campos son nombre, empresa, email, teléfono y mensaje
+  - La validación del formulario está en scripts.js
+  - Datos de contacto: modifica los <a> y <address> con tu información real
+  - Para conectar el formulario a un backend real: ver scripts.js líneas 40-70
+================================================ -->
+<section class="contact section" id="contacto" aria-labelledby="contact-title">
+  <div class="container contact__grid">
+
+    <!-- Datos de contacto -->
+    <div class="contact__info">
+      <span class="section-tag">Contacto</span>
+      <h2 id="contact-title" class="section-title">Hablemos de su proyecto</h2>
+      <p>Complete el formulario y nos pondremos en contacto a la brevedad. También puede comunicarse directamente:</p>
+
+      <!-- Datos de contacto — cambia los valores aquí -->
+      <address class="contact__data" aria-label="Información de contacto de Orintech SAS">
+        <div class="contact__item">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <!-- Cambia el email aquí -->
+          <a href="mailto:Orintech.sas@gmail.com" rel="noopener noreferrer">Orintech.sas@gmail.com</a>
+        </div>
+        <div class="contact__item">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <!-- Cambia el teléfono aquí -->
+          <a href="tel:+573219432879">+57 321 943 2879</a>
+        </div>
+        <div class="contact__item">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <!-- Cambia la dirección aquí -->
+          <span>Calle 18 #11-77, Tunja, Boyacá</span>
+        </div>
+      </address>
+    </div>
+
+    <!-- Formulario de contacto — los campos tienen atributos required para validación nativa + JS -->
+    <div class="contact__form-wrap">
+      <!-- El id="contactForm" es utilizado por scripts.js — no cambies este id -->
+      <form class="contact-form" id="contactForm" novalidate aria-label="Formulario de contacto">
+
+        <div class="form-row">
+          <div class="form-group">
+            <!-- Cambia el label si deseas otro texto para el campo -->
+            <label for="nombre" class="form-label">Nombre completo <span aria-hidden="true">*</span></label>
+            <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Juan Pérez" required autocomplete="name" aria-required="true" />
+            <!-- .form-error es mostrado por scripts.js con el mensaje de error -->
+            <span class="form-error" id="nombreError" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="empresa" class="form-label">Empresa</label>
+            <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nombre de su empresa" autocomplete="organization" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email" class="form-label">Correo electrónico <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="correo@empresa.com" required autocomplete="email" aria-required="true" />
+            <span class="form-error" id="emailError" role="alert" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+57 300 000 0000" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje" class="form-label">Mensaje <span aria-hidden="true">*</span></label>
+          <textarea id="mensaje" name="mensaje" class="form-input form-textarea" placeholder="Cuéntenos sobre su proyecto o necesidad..." required rows="5" aria-required="true"></textarea>
+          <span class="form-error" id="mensajeError" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Área de notificaciones (éxito / error general) — gestionada por scripts.js -->
+        <div class="form-notification" id="formNotification" role="alert" aria-live="polite" hidden></div>
+
+        <!-- El botón se deshabilita mientras se envía (ver scripts.js) -->
+        <button type="submit" class="btn btn--primary btn--full" id="submitBtn" aria-label="Enviar formulario de contacto">
+          <span id="submitText">Enviar mensaje</span>
+          <span id="submitLoading" hidden aria-hidden="true">Enviando…</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================
+  FOOTER
+  - Para cambiar los enlaces rápidos edita los <a> dentro de .footer__links
+  - Para cambiar el copyright edita el texto dentro de .footer__copy
+  - Cambia el logo del footer si deseas una versión en blanco: assets/logo-blanco.png
+================================================ -->
+<footer class="footer" role="contentinfo">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <img src="assets/logo.png" alt="Logo Orintech SAS" width="140" height="42" loading="lazy" />
+      <p class="footer__tagline">Tecnología con propósito. Boyacá, Colombia.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Enlaces rápidos del footer">
+      <h4 class="footer__heading">Navegación</h4>
+      <ul class="footer__links" role="list">
+        <li><a href="#inicio" class="footer__link">Inicio</a></li>
+        <li><a href="#quienes-somos" class="footer__link">Quiénes somos</a></li>
+        <li><a href="#servicios" class="footer__link">Servicios</a></li>
+        <li><a href="#casos" class="footer__link">Casos de éxito</a></li>
+        <li><a href="#contacto" class="footer__link">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="footer__contact">
+      <h4 class="footer__heading">Contacto</h4>
+      <ul class="footer__links" role="list">
+        <!-- Cambia los datos de contacto del footer aquí -->
+        <li><a href="mailto:Orintech.sas@gmail.com" class="footer__link">Orintech.sas@gmail.com</a></li>
+        <li><a href="tel:+573219432879" class="footer__link">+57 321 943 2879</a></li>
+        <li><span class="footer__link">Calle 18 #11-77, Tunja, Boyacá</span></li>
+      </ul>
+
+      <!-- ================================================
+        REDES SOCIALES EN EL FOOTER
+        - Para cambiar cada enlace reemplaza el href="..." con la URL exacta de tu perfil:
+          Instagram → https://www.instagram.com/TU_USUARIO
+          TikTok    → https://www.tiktok.com/@TU_USUARIO
+          Facebook  → https://www.facebook.com/TU_PAGINA
+        - Para ocultar una red: agrega hidden al <a> correspondiente
+      ================================================ -->
+      <div class="footer__social" aria-label="Redes sociales de Orintech SAS">
+        <h4 class="footer__heading" style="margin-top:1.5rem;">Síguenos</h4>
+        <div class="social-icons">
+
+          <!-- INSTAGRAM -->
+          <a href="https://www.instagram.com/orintechsas?utm_source=qr&igsh=MXJxZGhqZWNtenJnMA==" class="social-icon social-icon--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Orintech SAS">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+
+          <!-- TIKTOK -->
+          <a href="https://www.tiktok.com/@orintechsas" class="social-icon social-icon--tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok de Orintech SAS">
+            <i class="fab fa-tiktok" aria-hidden="true"></i>
+          </a>
+
+          <!-- FACEBOOK -->
+          <a href="https://www.facebook.com/share/18ABxMjiVw/" class="social-icon social-icon--facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Orintech SAS">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="container">
+      <!-- Cambia el año y nombre de la empresa aquí -->
+      <p class="footer__copy">&copy; 2026 Orintech SAS. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================
+  BOTÓN FLOTANTE DE WHATSAPP
+  - Para cambiar el número: reemplaza 573219432879 en el href (sin + ni espacios)
+  - Para cambiar el mensaje predeterminado: edita el parámetro text= en el href
+    (el texto debe estar codificado en URL: usa %20 para espacios, %2C para comas, etc.)
+  - El botón aparece con animación de entrada tras 1.5s (ver scripts.js)
+  - Para ocultar el botón: agrega el atributo hidden al elemento <a>
+================================================ -->
+<a
+  href="https://wa.me/573219432879?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20tecnol%C3%B3gicos."
+  class="whatsapp-btn"
+  id="whatsappBtn"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Contactar a Orintech SAS por WhatsApp"
+>
+  <span class="whatsapp-btn__icon" aria-hidden="true">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </span>
+  <!-- Cambia el texto del botón aquí si lo deseas -->
+  <span class="whatsapp-btn__text">Escríbenos</span>
+</a>
+
+<!-- Script principal — siempre al final del body para mejor rendimiento -->
+<script src="scripts.js"></script>
+
+<!-- ================================================
+  MANUAL DE EDICIÓN — SECCIÓN OCULTA
+  Esta sección no es visible para el usuario final.
+  Contiene guías paso a paso para el administrador del sitio.
+================================================ -->
+<section id="documentacion" hidden aria-hidden="true">
+  <!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║           MANUAL DE EDICIÓN — ORINTECH SAS WEBSITE           ║
+  ╚══════════════════════════════════════════════════════════════╝
+
+  1. DÓNDE EDITAR EL TÍTULO PRINCIPAL Y SUBTÍTULOS
+  ─────────────────────────────────────────────────
+  - Título principal (h1 hero): busca la etiqueta <h1 class="hero__title"> en la sección HERO
+  - Subtítulo hero: busca <p class="hero__subtitle">
+  - Título de sección: busca <h2 id="about-title">, <h2 id="services-title">, etc.
+  - Subtítulos de sección: busca <p class="section-subtitle">
+
+  2. DÓNDE CAMBIAR TEXTOS DE SERVICIOS
+  ─────────────────────────────────────
+  - Cada servicio es un <article class="service-card">
+  - El título está en <h3 class="service-card__title">
+  - La descripción está en <p class="service-card__desc">
+  - Para agregar un nuevo servicio copia un bloque <article> completo y pégalo en la grilla
+
+  3. CÓMO REEMPLAZAR logo.png Y imagenX.jpg
+  ──────────────────────────────────────────
+  a) Logo:
+     - Nombre exacto del archivo: logo.png
+     - Ruta exacta: assets/logo.png
+     - Dimensiones recomendadas: 400×120 px (fondo transparente si es PNG)
+     - Para cambiar solo reemplaza el archivo en la carpeta assets/ sin cambiar el nombre.
+
+  b) Imágenes de servicios y hero:
+     - Nombre exacto:  imagen1.jpg (hero), imagen2.jpg a imagen7.jpg (servicios)
+     - Ruta exacta:    assets/images/
+     - Dimensiones:    imagen1 → 1600×900 px | imagen2-7 → 800×600 px
+     - Para cambiar: reemplaza el archivo manteniendo el mismo nombre exacto.
+     - Si quieres usar otro nombre de archivo cambia el atributo src en la etiqueta <img> correspondiente.
+
+  4. PASOS PARA CONECTAR EL FORMULARIO A UN BACKEND REAL
+  ──────────────────────────────────────────────────────
+  a) Abre scripts.js
+  b) Busca la constante: const ENDPOINT = 'https://example.com/submit';
+  c) Reemplaza esa URL con el endpoint real de tu backend (ej. PHP, Node.js, FormSpree, etc.)
+  d) Si usas FormSpree: crea una cuenta en formspree.io, crea un formulario, copia la URL
+     y pégala como ENDPOINT. FormSpree recibe los datos y los envía a tu email.
+  e) Si tu backend espera cabeceras de autenticación, agrégalas en el objeto `headers` del fetch.
+  f) Ajusta el campo `body` del fetch si tu backend espera un formato diferente (JSON vs FormData).
+
+  5. CLASES CSS ÚTILES PARA AJUSTAR MÁRGENES / PADDINGS / COLORES
+  ────────────────────────────────────────────────────────────────
+  - .section          → padding vertical de secciones (ver styles.css)
+  - .container        → ancho máximo y centrado horizontal (ver styles.css)
+  - .btn--primary     → botón azul principal
+  - .btn--outline     → botón con borde azul
+  - .btn--full        → botón de ancho completo
+  - .section-tag      → etiqueta pequeña encima del título de sección
+  - .section-title    → título principal de sección
+  - .section-subtitle → subtítulo de sección
+  - .highlight        → texto con color acento (azul claro)
+  - .stat-card        → tarjeta de estadística
+  - .service-card     → card de servicio
+  - .case-card        → card de caso de éxito
+  - .why-item         → elemento de "¿Por qué elegirnos?"
+  - .form-group       → contenedor de campo de formulario
+  - .form-error       → mensaje de error de validación
+  - .form-notificatio
