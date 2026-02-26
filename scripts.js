@@ -32,7 +32,7 @@
    Para un endpoint propio: 'https://tu-dominio.com/api/contacto'
    Para pruebas: 'https://example.com/submit' (siempre falla, es un placeholder)
 ======================================================= */
-const ENDPOINT = 'https://formspree.io/f/mbdawplj';
+const ENDPOINT = 'https://formspree.io/f/mnjbwykb';
 
 /* Selectores del DOM — se obtienen una sola vez para mejor rendimiento */
 const form        = document.getElementById('contactForm');
